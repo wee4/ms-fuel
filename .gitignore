@@ -192,3 +192,4 @@ nbdist/
 /gradle
 /.editorconfig
 /grade.*
+/.idea/
