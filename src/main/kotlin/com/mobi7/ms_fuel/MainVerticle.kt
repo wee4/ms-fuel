@@ -2,20 +2,20 @@ package com.mobi7.ms_fuel
 
 import io.vertx.core.AbstractVerticle
 import io.vertx.ext.mongo.MongoClient
-import io.vertx.kotlin.core.json.*
+import io.vertx.kotlin.core.json.json
+import io.vertx.kotlin.core.json.obj
 
 class MainVerticle : AbstractVerticle() {
   private val config = json {
     obj(
-      "connection_string" to "mongodb://localhost:27017",
-      "db_name" to "my_db"
+      "connection_string" to "mongodb://root:example@127.0.0.1:27017/"
     )
   }
-  private val mongoClient = MongoClient.create(vertx, config)
-  private var service: FuelService = FuelService(mongoClient)
-
 
   override fun start() {
+    val mongoClient = MongoClient.create(vertx, config)
+
+    val service: FuelService = FuelService(mongoClient)
     vertx.createHttpServer()
       .requestHandler { req ->
         req.response()
