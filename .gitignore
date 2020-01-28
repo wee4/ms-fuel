@@ -186,3 +186,5 @@ nbdist/
 
 # Project exclude paths
 /build/
+
+.idea
