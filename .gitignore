@@ -187,7 +187,7 @@ nbdist/
 # Project exclude paths
 /build/
 
-/.idea
+/idea
 /data
 /gradle
 /.editorconfig
